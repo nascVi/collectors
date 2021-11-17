@@ -1,11 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import Nav from './components/nav/Nav';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>The Collectors Hang Out</h1>
+        <Nav />
+	  <h1>The Collectors Hang Out</h1>
 	  <img src={logo} className="App-logo" alt="logo" />
         <p>
           what's up doc collectors?!
