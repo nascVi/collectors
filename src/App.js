@@ -1,27 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
 import Nav from './components/nav/Nav';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from './screens/HomePage'
+import SignIn from './screens/SignIn'
+import SignUp from './screens/SignUp'
+import NotFound from './screens/NotFound'
+import Blog from './screens/Blog'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Nav />
-	  <h1>The Collectors Hang Out</h1>
-	  <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          what's up doc collectors?!
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Nav />
+      <Routes>
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/blogs/" component={HomePage} />
+        <Route path="/blogs/:id/" component={Blog} />
+        <Route exact path="/signin/" component={SignIn} />
+        <Route exact path="/signup/" component={SignUp} />
+        <Route exact path="*" component={NotFound} />
+      </Routes>
+    </Router>
   );
 }
 
