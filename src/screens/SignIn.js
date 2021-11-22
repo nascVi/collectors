@@ -3,9 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import {loginUser} from '../fauna/models'
 
 export default function SignIn() {
-  let navigate = useNavigate()
+  let history = useNavigate()
   if (localStorage.getItem('userId')) {
-  navigate.push('/') 
+    history.push('/') 
   }
   const email = useRef('')
   const password = useRef('')
@@ -26,12 +26,13 @@ export default function SignIn() {
         localStorage.setItem('userId', user.id)
         localStorage.setItem('username', user.username)
         localStorage.setItem('email', user.email)
-        navigate.push('/')
+        history.push('/')
       } else {
         alert('Invalid email or password')
       }
     }
   }
+
   return (
     <form className="form-horizontal">
     <div className="form-group">

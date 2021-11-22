@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router";
 
 export default function Signout() {
-  const navigate = useNavigate()
+  const history = useNavigate()
   const handleClick = () => {
     localStorage.clear()
-    navigate.push('/')
+    history.push('/')
   }
   return (
     <div className="signin__input mt-6">

@@ -3,11 +3,11 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const DynamicSignup = ({isLoggedIn}) => {
   const {pathname} = useLocation() // endpoint of the request
-  const navigate = useNavigate() 
+  const history = useNavigate() 
 
   const handleSignout = () => {
     localStorage.clear()
-    navigate.push('/') //redirects back to homepage
+    history.push('/') //redirects back to homepage
   }
   if (isLoggedIn) {
     return (
@@ -23,10 +23,10 @@ const DynamicSignup = ({isLoggedIn}) => {
   }
 }
 
-function Nav () {
+function Navbar () {
   const {pathname} = useLocation()
   return (
-    <nav className="navbar navbar-inverse">
+    <nav className="navbar navbar-dark bg-dark navbar-inverse">
       <div className="container-fluid">
         <div className="navbar-header">
           <Link className="navbar-brand" to="#">The Collectors Blog</Link>
@@ -43,4 +43,4 @@ function Nav () {
   );
 }
 
-export default Nav;
+export default Navbar;

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import BlogPreview from '../components/blog-preview/BlogPreview'
-import {getPosts} from '../fauna//models'
+import {getPosts} from '../fauna/models'
 
 export default function HomePage() {
   const [blogs, setBlogs] = useState([])

@@ -2,10 +2,10 @@ import {useRef} from 'react'
 import { createUser } from '../fauna/models';
 import {useNavigate} from 'react-router-dom'
 
-export default function SignIn() {
-  const navigate = useNavigate()
-  if (localStorage.getItem('user')) {
-    navigate.push('/')
+export default function SignUp() {
+  const history = useNavigate()
+  if (localStorage.getItem('userId')) {
+    history.push('/')
   }
   const name= useRef()
   const email = useRef()
@@ -28,7 +28,7 @@ export default function SignIn() {
         localStorage.setItem('userId', user.id)
         localStorage.setItem('username', user.username)
         localStorage.setItem('email', user.email)
-        navigate.push('/')
+        history.push('/')
         alert('Account created sucessfully, signing you in...')
       }
     } else if (!name || !email || !username || !password) {
