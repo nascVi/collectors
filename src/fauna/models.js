@@ -3,9 +3,9 @@ import bcrypt from 'bcryptjs'
 import dotenv from 'dotenv'
 
 dotenv.config()
-const client = new faunadb.Client({secret: process.env.REACT_APP_FAUNA_KEY})
+const client = new faunadb.Client({secret: process.env.COLLS})
 
-export  const createUser = async (name, email, username, password) => {
+export const createUser = async (name, email, username, password) => {
   password = bcrypt.hashSync(password, bcrypt.genSaltSync(10)) //hashes the password 
   let data
   try {

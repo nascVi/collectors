@@ -2,8 +2,9 @@ import React from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 
 const DynamicSignup = ({isLoggedIn}) => {
-  const {pathname} = useLocation() // endpoint of the request
-  const history = useNavigate() 
+  const location = useLocation();
+  const pathname = location.search; // endpoint of the request
+  const history = useNavigate()
 
   const handleSignout = () => {
     localStorage.clear()
@@ -17,8 +18,8 @@ const DynamicSignup = ({isLoggedIn}) => {
     </>)
   } else {
       return <>
-        <li className={pathname==="/signup"? "active": ""}><Link to="/signup"><span className="glyphicon glyphicon-user"></span>Signup</Link></li>
-        <li className={pathname==="/signin"? "active": ""}><Link to="/signin"><span className="glyphicon glyphicon-log-in"></span> Signin</Link></li>
+        <li style={{display:'inline'}} className={pathname==="/signup"? "btn btn-outlined-primary active": ""}><Link to="/signup"><span className="glyphicon glyphicon-user"></span>Signup</Link></li>
+        <li style={{display:'inline'}} className={pathname==="/signin"? "btn btn-outlined-primary active": ""}><Link to="/signin"><span className="glyphicon glyphicon-log-in"></span> Signin</Link></li>
       </>
   }
 }
@@ -31,11 +32,11 @@ function Navbar () {
         <div className="navbar-header">
           <Link className="navbar-brand" to="#">The Collectors Blog</Link>
         </div>
-        <ul style={{display:'inline'}} className="nav navbar-nav">
-          <li className={pathname==="/"? "active": ""}><Link to="/">Home</Link></li>
-          <li className={pathname==="/blogs"? "active": ""}><Link to="/blogs">Blogs</Link></li>
+        <ul style={{display:"inline"}} className="nav navbar-nav">
+          <li style={{display:"inline"}} className={pathname==="/"? "btn btn-outlined-primary bg-light active": ""}><Link to="/">Home</Link></li>
+          <li style={{display:"inline"}} className={pathname==="/blogs"? "btn btn-outlined-primary bg-light active": ""}><Link to="/blogs">Blogs</Link></li>
         </ul>
-        <ul style={{display:'inline'}} className="nav navbar-nav navbar-right">
+        <ul style={{display:'inline'}} className="navbar-nav navbar-right">
           <DynamicSignup isLoggedIn={localStorage.getItem('userId')? true: false} />
         </ul>
       </div>

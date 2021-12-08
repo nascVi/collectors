@@ -12,6 +12,7 @@ export default function HomePage() {
     }
     fetchBlogs();
   }, [])
+
   return (
     <div className="">
         <hr/>

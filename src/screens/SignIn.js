@@ -1,6 +1,6 @@
 import {useRef} from 'react'
 import { useNavigate } from 'react-router-dom';
-import {loginUser} from '../fauna/models'
+import { loginUser } from '../fauna/models'
 
 export default function SignIn() {
   let history = useNavigate()
